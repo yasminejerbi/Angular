@@ -1,0 +1,14 @@
+<div *ngFor="let residence of listResidences">
+    <h3>{{ residence.name }}</h3>
+    <p>{{ residence.address }}</p>
+    <button (click)="showApartments(residence)">Show apartments</button>
+    <!-- Display apartments for the selected residence -->
+    <div *ngIf="selectedResidence && selectedResidence.id === residence.id">
+      <ul>
+        <li *ngFor="let apartment of getApartmentsByResidence(residence)">
+          {{ apartment.description }}
+        </li>
+      </ul>
+    </div>
+  </div>
+  
